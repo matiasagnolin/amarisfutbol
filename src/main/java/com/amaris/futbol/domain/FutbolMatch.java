@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table(name = "Matches")
 @Entity
 @NoArgsConstructor
-public class Match extends Event {
+public class FutbolMatch extends Event {
 
     ITeam firstTeam;
 
