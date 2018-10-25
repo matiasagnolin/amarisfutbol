@@ -2,7 +2,6 @@ package com.amaris.futbol.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.codehaus.jackson.map.Serializers;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

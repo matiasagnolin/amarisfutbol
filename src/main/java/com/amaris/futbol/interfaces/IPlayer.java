@@ -1,7 +1,9 @@
 package com.amaris.futbol.interfaces;
 
 
-public interface IPlayer {
+import java.io.Serializable;
+
+public interface IPlayer extends Serializable {
 
      void getEnrolled();
      void dropOut();
