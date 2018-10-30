@@ -9,4 +9,5 @@ public interface IGenericSerivce<T> {
     void delete(T entity);
     void deleteById(long id);
     long count();
+    T update(T entity);
 }

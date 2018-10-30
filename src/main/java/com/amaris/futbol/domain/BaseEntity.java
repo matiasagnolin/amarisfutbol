@@ -2,6 +2,7 @@ package com.amaris.futbol.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.codehaus.jackson.map.Serializers;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,16 @@ public class BaseEntity implements Serializable {
         public BaseEntity(Long id) {
             this.id = id;
         }
+
         public BaseEntity (){}
+
+        public BaseEntity clone(BaseEntity entity){
+            BaseEntity base = new BaseEntity();
+            base.id = entity.id;
+
+            return base;
+        }
+
+
 
     }

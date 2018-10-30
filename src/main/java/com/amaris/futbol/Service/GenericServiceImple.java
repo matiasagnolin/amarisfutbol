@@ -1,12 +1,17 @@
 package com.amaris.futbol.Service;
 
 
+import com.amaris.futbol.repository.IGenericDAO;
+
 import java.util.List;
 
 public class GenericServiceImple<T> implements IGenericSerivce<T> {
 
+    IGenericDAO<T, Long> genericDAO;
 
-
+    public GenericServiceImple(IGenericDAO<T,Long> genericDao) {
+        this.genericDAO=genericDao;
+    }
     @Override
     public List<T> findAll() {
         return null;
@@ -37,5 +42,6 @@ public class GenericServiceImple<T> implements IGenericSerivce<T> {
         return 0;
     }
 
-
+    @Override
+    public T update(T entity) { return null; }
 }

@@ -1,4 +1,4 @@
-package com.amaris.futbol;
+package com.amaris.futbol.tests;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
