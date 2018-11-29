@@ -13,19 +13,20 @@ export image_name="jenkins_image"
 export docker_path="/home/projects/amarisfutbol/Jenkins"
 export container_name="Jenkins_container"
 
-#git checkout "$docker_path/$docker_file_name"
+git checkout "$docker_path/$docker_file_name"
 
 echo "TRYING TO STOP JENKINS CONTAINER->"
 docker stop $container_name
 
-echo "TRYING TO DELETE THE OLD IMAGE->"
-docker rmi $image_name
-
 echo "TRYING TO DELETE TERMINATED CONTAINERS->"
 docker rm -f $(docker ps -a -q)
 
+echo "TRYING TO DELETE THE OLD IMAGE->"
+docker rmi $(docker images -a)
+
+
 #To build this image this script must be in the same directory
-docker build -t $image_name .
+docker build -t $image_name ./Jenkins
 
 echo "----------DOCKER IMAGES-------------"
 
