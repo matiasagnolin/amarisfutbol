@@ -40,3 +40,13 @@ docker tag $image_name $username/$image_name:latest
 docker push $username/$repo
 
 docker run -d -it -p 8080:8080 --name $container_name $my_image
+
+echo "----------SCRIPT FINISHED-------------"
+
+
+
+
+
+
+
+
