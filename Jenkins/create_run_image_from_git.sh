@@ -13,7 +13,7 @@ export image_name="jenkins_image"
 export docker_path="/home/projects/amarisfutbol/Jenkins"
 export container_name="Jenkins_container"
 
-git checkout "$docker_path/$docker_file_name"
+#git checkout "$docker_path/$docker_file_name"
 
 echo "TRYING TO STOP JENKINS CONTAINER->"
 docker stop $container_name
@@ -33,11 +33,11 @@ docker images
 
 echo "------------------------------------"
 
-docker login --username $username --password-stdin $password
+docker login --username $username --password $password
 
 docker tag $image_name $username/$image_name:latest
 
-docker push $username/$repo
+docker push $username/$image_name
 
 docker run -d -it -p 8080:8080 --name $container_name $my_image
 

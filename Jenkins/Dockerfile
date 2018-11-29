@@ -22,7 +22,7 @@ USER jenkins
 #RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
 
 # Adding default Jenkins Seed Job
-COPY job_configuration/job_configuration.xml /usr/share/jenkins/ref/jobs/job-dsl-seed-job/config.xml
+COPY job_configuration/job_config.xml /usr/share/jenkins/ref/jobs/job-dsl-seed-job/config.xml
 
 ############################################
 # Configure Jenkins
