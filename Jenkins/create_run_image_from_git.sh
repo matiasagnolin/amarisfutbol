@@ -15,6 +15,8 @@ export container_name="Jenkins_container"
 
 git checkout "$docker_path/$docker_file_name"
 
+echo "TRYING TO STOP JENKINS CONTAINER->"
+docker stop $container_name
 
 echo "TRYING TO DELETE THE OLD IMAGE->"
 docker rmi $image_name
@@ -31,7 +33,7 @@ docker images
 
 echo "------------------------------------"
 
-docker login --username $username --password $password
+docker login --username $username --password-stdin $password
 
 docker tag $image_name $username/$image_name:latest
 

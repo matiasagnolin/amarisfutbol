@@ -18,8 +18,8 @@ RUN chmod +x /bin/docker
 USER jenkins
 
 # installing specific list of plugins. see: https://github.com/jenkinsci/docker#preinstalling-plugins
-COPY plugins.txt /usr/share/jenkins/plugins.txt
-RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
+#COPY plugins.txt /usr/share/jenkins/plugins.txt
+#RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
 
 # Adding default Jenkins Seed Job
 COPY jobs/job-dsl-seed-job.xml /usr/share/jenkins/ref/jobs/job-dsl-seed-job/config.xml
