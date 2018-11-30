@@ -1,7 +1,7 @@
-def gitUrl = 'https://github.com/codecentric/conference-app'
+def gitUrl = 'https://github.com/matiasagnolin/amarisfutbol'
 
 createCiJob("futbol-app", gitUrl, "pom.xml")
-createSonarJob("futbol-app", gitUrl, "pom.xml")
+//createSonarJob("futbol-app", gitUrl, "pom.xml")
 createDockerBuildJob("futbol-app", "app")
 createDockerStartJob("futbol-app", "app", "48080")
 createDockerStopJob("futbol-app", "app")
@@ -72,7 +72,7 @@ def createCiJob(def jobName, def gitUrl, def pomFile) {
     }
   }
 }
-
+/*
 def createSonarJob(def jobName, def gitUrl, def pomFile) {
   job("${jobName}-2-sonar") {
     parameters {
@@ -112,7 +112,7 @@ def createSonarJob(def jobName, def gitUrl, def pomFile) {
       }
     }
   }
-}
+}*/
 
 def createDockerBuildJob(def jobName, def folder) {
 
@@ -195,9 +195,9 @@ def createDockerStopJob(def jobName, def folder) {
 buildPipelineView('Pipeline') {
     filterBuildQueue()
     filterExecutors()
-    title('Conference App CI Pipeline')
+    title('Futbol App CI Pipeline')
     displayedBuilds(5)
-    selectedJob("conference-app-1-ci")
+    selectedJob("futbol-app-1-ci")
     alwaysAllowManualTrigger()
     refreshFrequency(60)
 }
