@@ -208,7 +208,7 @@ listView('Futbol App') {
     filterBuildQueue()
     filterExecutors()
     jobs {
-        regex(/conference-app-.*/)
+        regex(/conference-app-.)
   /*  }
     columns {
         status()
