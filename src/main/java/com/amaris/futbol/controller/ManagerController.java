@@ -3,17 +3,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+import amaris.futbol.Service.PlayerService;
 
 @RestController
 @RequestMapping(value="/manager")
 public class ManagerController {
 
-
+    @Autowired
     private PlayerService service;
 
-    @Autowired
-    public ConsultantController(PlayerService service){
+    
+    public ManagerController(PlayerService service){
         this.service=service;
     }
 
@@ -32,7 +32,7 @@ public class ManagerController {
     @PostMapping(value = "/add")
     public ResponseEntity saveConsultant(@RequestBody Manager manager){
         service.save(manager);
-        return new ResponseEntity("Consultant saved successfully", HttpStatus.OK);
+        return new ResponseEntity("Manager saved successfully", HttpStatus.OK);
     }
 
 
