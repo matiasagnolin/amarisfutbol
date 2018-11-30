@@ -2,9 +2,9 @@ def gitUrl = 'https://github.com/matiasagnolin/amarisfutbol'
 
 createCiJob("futbol-app", gitUrl, "pom.xml")
 //createSonarJob("futbol-app", gitUrl, "pom.xml")
-createDockerBuildJob("futbol-app", "app")
-createDockerStartJob("futbol-app", "app", "48080")
-createDockerStopJob("futbol-app", "app")
+//createDockerBuildJob("futbol-app", "app")
+//createDockerStartJob("futbol-app", "app", "48080")
+//createDockerStopJob("futbol-app", "app")
 
 //createCiJob("conference-app-monitoring", gitUrl, "monitoring/pom.xml")
 //createSonarJob("conference-app-monitoring", gitUrl, "monitoring/pom.xml")
@@ -15,7 +15,7 @@ createDockerStopJob("futbol-app", "app")
 def createCiJob(def jobName, def gitUrl, def pomFile) {
   job("${jobName}-1-ci") {
     parameters {
-      stringParam("BRANCH", "master", "Define TAG or BRANCH to build from")
+      stringParam("BRANCH", "develop", "Define TAG or BRANCH to build from")
   //    stringParam("REPOSITORY_URL", "http://nexus:8081/repository/maven-releases/", "Nexus Release Repository URL")
     }
     scm {
@@ -54,13 +54,13 @@ def createCiJob(def jobName, def gitUrl, def pomFile) {
     }
     publishers {
       chucknorris()
-      archiveXUnit {
+/*      archiveXUnit {
         jUnit {
           pattern('**/target/surefire-reports/*.xml')
           skipNoTestFiles(true)
           stopProcessingIfError(true)
         }
-      }
+      }*/
       publishCloneWorkspace('**', '', 'Any', 'TAR', true, null)
       downstreamParameterized {
         trigger("${jobName}-2-sonar") {
@@ -191,7 +191,7 @@ def createDockerStopJob(def jobName, def folder) {
     }
   }
 }
-
+/*
 buildPipelineView('Pipeline') {
     filterBuildQueue()
     filterExecutors()
@@ -208,7 +208,7 @@ listView('Futbol App') {
     filterExecutors()
     jobs {
         regex(/conference-app-.*/)
-    }
+  /*  }
     columns {
         status()
         buildButton()
@@ -218,4 +218,4 @@ listView('Futbol App') {
         lastFailure()
         lastDuration()
     }
-}
+}*/
