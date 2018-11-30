@@ -61,7 +61,7 @@ def createCiJob(def jobName, def gitUrl, def pomFile) {
           skipNoTestFiles(true)
           stopProcessingIfError(true)
         }
-      }
+      }*/
       publishCloneWorkspace('**', '', 'Any', 'TAR', true, null)
       downstreamParameterized {
         trigger("${jobName}-2-sonar") {
@@ -72,7 +72,7 @@ def createCiJob(def jobName, def gitUrl, def pomFile) {
       }
     }
   }
-}
+}/*
 
 def createSonarJob(def jobName, def gitUrl, def pomFile) {
   job("${jobName}-2-sonar") {
