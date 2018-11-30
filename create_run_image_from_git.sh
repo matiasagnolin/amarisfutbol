@@ -33,11 +33,11 @@ docker images
 
 echo "------------------------------------"
 
-docker login --username $username --password $password
+#docker login --username $username --password $password
 
-docker tag $image_name $username/$image_name:latest
+#docker tag $image_name $username/$image_name:latest
 
-docker push $username/$image_name
+#docker push $username/$image_name
 
 docker run -d -it -p 8080:8080 --name $container_name $image_name
 

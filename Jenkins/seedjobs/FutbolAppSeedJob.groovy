@@ -14,7 +14,6 @@ createCiJob("futbol-app", gitUrl, "pom.xml")
 
 def createCiJob(def jobName, def gitUrl, def pomFile) {
   job("${jobName}-1-ci") {
-    description "Builds AmarisFutbol from develop branch."
     parameters {
       stringParam("BRANCH", "develop", "Define TAG or BRANCH to build from")
   //    stringParam("REPOSITORY_URL", "http://nexus:8081/repository/maven-releases/", "Nexus Release Repository URL")
@@ -57,7 +56,7 @@ def createCiJob(def jobName, def gitUrl, def pomFile) {
       chucknorris()
 /*      archiveXUnit {
         jUnit {
-          pattern('**/target/surefire-reports/*.xml')
+          pattern('/target/surefire-reports/*.xml')
           skipNoTestFiles(true)
           stopProcessingIfError(true)
         }
