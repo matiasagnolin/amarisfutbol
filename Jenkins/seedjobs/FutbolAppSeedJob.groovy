@@ -71,12 +71,12 @@ def createCiJob(def jobName, def gitUrl, def pomFile) {
       }
     }
   }
-}
-/*
+}/*
+
 def createSonarJob(def jobName, def gitUrl, def pomFile) {
   job("${jobName}-2-sonar") {
     parameters {
-      stringParam("BRANCH", "master", "Define TAG or BRANCH to build from")
+      stringParam("BRANCH", "develop", "Define TAG or BRANCH to build from")
     }
     scm {
       cloneWorkspace("${jobName}-1-ci")
@@ -207,7 +207,7 @@ listView('Futbol App') {
     filterBuildQueue()
     filterExecutors()
     jobs {
-        regex(/conference-app-.*/)
+        regex(/conference-app-.)
   /*  }
     columns {
         status()
