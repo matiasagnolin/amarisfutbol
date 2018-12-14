@@ -1,7 +1,10 @@
 package com.amaris.futbol.service;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.amaris.futbol.repository.IGenericDAO;
 
+@Transactional
 public abstract class GenericServiceImple<T> implements IGenericSerivce<T> {
 
     private IGenericDAO<T, Long> genericDAO;

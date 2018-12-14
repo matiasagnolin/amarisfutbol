@@ -10,13 +10,11 @@
  */
 package com.amaris.futbol.app;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 /**
  *
  */
 @org.springframework.context.annotation.Configuration
-@EnableAutoConfiguration
 public class Configuration {
 
 }
