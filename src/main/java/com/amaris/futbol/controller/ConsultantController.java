@@ -1,7 +1,8 @@
 package com.amaris.futbol.controller;
 
-import com.amaris.futbol.Service.PlayerService;
 import com.amaris.futbol.domain.Consultant;
+import com.amaris.futbol.service.PlayerService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

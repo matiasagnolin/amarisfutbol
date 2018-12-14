@@ -1,13 +1,18 @@
-package com.amaris.futbol.Service;
+package com.amaris.futbol.service;
 
-import java.util.List;
 
 public interface IGenericSerivce<T> {
-    List<T> findAll();
+    Iterable<T> findAll();
+
     T save(T entity);
+
     T findById(long id);
+
     void delete(T entity);
+
     void deleteById(long id);
+
     long count();
+
     T update(T entity);
 }
