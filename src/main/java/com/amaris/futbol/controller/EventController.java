@@ -1,3 +1,13 @@
+/**
+ * $Id$
+ * @author magnolin@scytl.net
+ * @date   Dec 14, 2018 3:10:42 PM
+ *
+ * Copyright (C) 2018 Amaris
+ *
+ * All rights reserved.
+ *
+ */
 package com.amaris.futbol.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,49 +20,44 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.amaris.futbol.domain.Consultant;
-import com.amaris.futbol.domain.Player;
-import com.amaris.futbol.service.PlayerService;
+import com.amaris.futbol.domain.Event;
+import com.amaris.futbol.service.EventService;
 
-@RestController
-@RequestMapping(value = "/consultant")
-public class ConsultantController {
-
-    private final PlayerService service;
-
+/**
+ *
+ */
+public class EventController {
     @Autowired
-    public ConsultantController(final PlayerService service) {
+    private final EventService service;
+
+    public EventController(final EventService service) {
         this.service = service;
     }
 
     @GetMapping(value = "/list")
-    public Iterable<Player> list(final Model model) {
+    public Iterable<Event> list(final Model model) {
         return service.findAll();
     }
 
     @GetMapping(value = "/show/{id}")
-    public Consultant showConsultant(@PathVariable final long id,
-            final Model model) {
-        return (Consultant) service.findById(id);
+    public Event showManager(@PathVariable final long id, final Model model) {
+        return service.findById(id);
 
     }
 
     @PostMapping(value = "/add")
     public ResponseEntity<String> saveConsultant(
-            @RequestBody final Consultant consultant) {
-        service.save(consultant);
-        return new ResponseEntity<>("Consultant saved successfully",
+        @RequestBody final Event event) {
+        service.save(event);
+        return new ResponseEntity<>("Manager saved successfully",
             HttpStatus.OK);
     }
 
     @PutMapping(value = "/update/{id}")
     public ResponseEntity<String> updateConsultant(
-            @PathVariable final Long id,
-            @RequestBody final Consultant consultant) {
-        service.update(consultant);
+        @PathVariable final Long id, @RequestBody final Event event) {
+        service.update(event);
         return new ResponseEntity<>("Consultant updated successfully",
             HttpStatus.OK);
     }
@@ -64,5 +69,4 @@ public class ConsultantController {
             HttpStatus.OK);
 
     }
-
 }
